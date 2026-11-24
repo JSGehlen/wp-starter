@@ -1,0 +1,6 @@
+# Dependencies and local noise. Built block assets (build/) ARE committed,
+# so deploying to the host never needs Node.
+node_modules/
+.DS_Store
+*.log
+.env*
