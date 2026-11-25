@@ -71,6 +71,16 @@ html {
 	color: var(--wp--preset--color--primary);
 }
 
+/*
+ * Full-width Cover blocks (the hero) use the page's side padding, like every
+ * other section. Core gives covers only 1em, so their text sat further left
+ * than the header whenever the window was close to the wide width (75rem).
+ * Padding set on a block in the editor is inline and still wins.
+ */
+.wp-block-cover.alignfull {
+	padding-inline: var(--wp--style--root--padding-left) var(--wp--style--root--padding-right);
+}
+
 /* Media never overflows on small screens. */
 img,
 video,
