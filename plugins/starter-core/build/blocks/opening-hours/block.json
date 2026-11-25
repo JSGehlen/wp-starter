@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "starter/opening-hours",
+  "version": "0.1.0",
+  "title": "Opening hours",
+  "category": "widgets",
+  "icon": "clock",
+  "description": "Opening hours from Settings → Business details, grouped by days with the same hours.",
+  "keywords": [
+    "aukioloajat",
+    "aukiolo",
+    "hours"
+  ],
+  "textdomain": "starter-core",
+  "attributes": {
+    "dayFormat": {
+      "type": "string",
+      "enum": [
+        "short",
+        "long"
+      ],
+      "default": "short"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "color": {
+      "text": true,
+      "background": false
+    },
+    "typography": {
+      "fontSize": true
+    },
+    "spacing": {
+      "margin": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

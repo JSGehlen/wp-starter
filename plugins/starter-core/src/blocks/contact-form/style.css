@@ -1,0 +1,92 @@
+/*
+ * Contact form. Uses the theme's presets when they exist, with plain fallbacks.
+ */
+.wp-block-starter-contact-form__form {
+	display: grid;
+	gap: var(--wp--preset--spacing--30, 1rem);
+}
+
+.wp-block-starter-contact-form__form > p {
+	margin: 0;
+}
+
+.wp-block-starter-contact-form__field {
+	display: grid;
+	gap: 0.375rem;
+}
+
+.wp-block-starter-contact-form__field label {
+	font-weight: 600;
+}
+
+.wp-block-starter-contact-form__field input,
+.wp-block-starter-contact-form__field textarea {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.75rem;
+	border: 1px solid var(--wp--preset--color--border, #8a929b);
+	border-radius: var(--wp--custom--radius--small, 0.375rem);
+	background: var(--wp--preset--color--base, #fff);
+	color: var(--wp--preset--color--contrast, #1c2127);
+	font: inherit;
+}
+
+.wp-block-starter-contact-form__field textarea {
+	min-height: 10rem;
+	resize: vertical;
+}
+
+.wp-block-starter-contact-form__field [aria-invalid="true"] {
+	border-color: #b3261e;
+	border-width: 2px;
+}
+
+.wp-block-starter-contact-form__error,
+.wp-block-starter-contact-form__required {
+	color: #b3261e;
+}
+
+.wp-block-starter-contact-form__error {
+	font-size: var(--wp--preset--font-size--small, 0.875rem);
+	font-weight: 600;
+}
+
+.wp-block-starter-contact-form__notice {
+	padding: 0.75rem 1rem;
+	border-inline-start: 0.25rem solid #b3261e;
+	background: #fdecea;
+	color: #1c2127;
+}
+
+.wp-block-starter-contact-form__success {
+	padding: 1rem 1.25rem;
+	border-inline-start: 0.25rem solid #1e7e34;
+	background: #e8f5ec;
+	color: #1c2127;
+}
+
+.wp-block-starter-contact-form__success p {
+	margin: 0;
+}
+
+.wp-block-starter-contact-form__success p + p {
+	margin-top: 0.25rem;
+}
+
+.wp-block-starter-contact-form__legend,
+.wp-block-starter-contact-form__privacy {
+	font-size: var(--wp--preset--font-size--small, 0.875rem);
+}
+
+.wp-block-starter-contact-form__submit button {
+	cursor: pointer;
+}
+
+/* Honeypot: off screen, not display:none (some bots skip hidden fields). */
+.wp-block-starter-contact-form__hp {
+	position: absolute !important;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
