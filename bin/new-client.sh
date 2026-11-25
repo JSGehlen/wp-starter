@@ -96,4 +96,18 @@ grep -rn -i 'starter' "$TARGET/themes/$SLUG" "$TARGET/plugins/$SLUG-core" \
 	--include='*.php' --include='*.json' --include='*.html' --include='*.css' --include='*.js' \
 	| grep -v '/build/' || echo "  none"
 echo
-echo "Next: cd \"$TARGET/plugins/$SLUG-core\" && npm ci && npm run build"
+TARGET_ABS="$(cd "$TARGET" && pwd)"
+cat <<NEXT
+Next steps:
+
+  1. Build the plugin and start the client's git repo:
+       cd "$TARGET_ABS/plugins/$SLUG-core" && npm ci && npm run build
+       cd "$TARGET_ABS" && git init
+
+  2. Create a Local site named "$SLUG", then link the theme and plugin into it:
+       cd ~/Local\\ Sites/$SLUG/app/public/wp-content
+       ln -s "$TARGET_ABS/themes/$SLUG" themes/$SLUG
+       ln -s "$TARGET_ABS/plugins/$SLUG-core" plugins/$SLUG-core
+
+  3. Activate both in WordPress and follow README.md, "2. Local site".
+NEXT

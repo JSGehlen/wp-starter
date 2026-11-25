@@ -37,9 +37,24 @@ show on Local, restart the site in Local.
 
 ### 1. Copy and rename
 
+Run the script from this repo. The target is where the new client repo will
+live; use a full path so it never ends up inside the starter. The script
+creates the folder if needed.
+
 ```bash
+cd ~/Downloads/projects/wp-starter
 bin/new-client.sh kahvila-aalto "Kahvila Aalto" ~/Downloads/projects/kahvila-aalto
-cd ~/Downloads/projects/kahvila-aalto/plugins/kahvila-aalto-core && npm ci && npm run build
+```
+
+Then build the plugin and start the client's git repo:
+
+```bash
+cd ~/Downloads/projects/kahvila-aalto/plugins/kahvila-aalto-core
+npm ci
+npm run build
+
+cd ~/Downloads/projects/kahvila-aalto
+git init
 ```
 
 The script creates `themes/<slug>`, `plugins/<slug>-core`, `docs/` and a
@@ -62,8 +77,18 @@ description and two doc comments should be left, for you to rewrite.
 
 ### 2. Local site
 
-Create a Local site named after the client and copy (or symlink) the theme and
-plugin into its `wp-content`. Then, in WordPress:
+Create a Local site named after the client (here `kahvila-aalto`), then link
+the theme and plugin from the client repo into its `wp-content`, the same way
+the starter is linked. The folder under `~/Local Sites/` is the Local site's
+name:
+
+```bash
+cd ~/Local\ Sites/kahvila-aalto/app/public/wp-content
+ln -s ~/Downloads/projects/kahvila-aalto/themes/kahvila-aalto themes/kahvila-aalto
+ln -s ~/Downloads/projects/kahvila-aalto/plugins/kahvila-aalto-core plugins/kahvila-aalto-core
+```
+
+Then, in WordPress:
 
 1. Activate the theme and the plugin.
 2. **Asetukset → Yleinen**: Sivuston kieli Suomi, Päivämäärän oletusmuoto `j.n.Y`, Kellonajan oletusmuoto `H.i`.
