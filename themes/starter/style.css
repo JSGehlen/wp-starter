@@ -64,6 +64,13 @@ html {
 	color: var(--wp--preset--color--primary-contrast);
 }
 
+/* On a primary-coloured band the outline button inverts on hover instead. */
+.has-primary-background-color .wp-block-button.is-style-outline > .wp-block-button__link:hover {
+	background: var(--wp--preset--color--primary-contrast);
+	border-color: var(--wp--preset--color--primary-contrast);
+	color: var(--wp--preset--color--primary);
+}
+
 /* Media never overflows on small screens. */
 img,
 video,
